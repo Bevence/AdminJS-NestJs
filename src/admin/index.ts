@@ -28,8 +28,10 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     scripts: process.env.NODE_ENV === 'production' ? ['/gtm.js'] : [],
   },
   branding: {
-    companyName: 'AdminJS demo page',
-    favicon: '/favicon.ico',
+    companyName: 'AdminJS',
+    withMadeWithLove: false,
+    // logo: 'logo.png',
+    // favicon: '/favicon.ico',
     theme: {
       colors: { primary100: '#4D70EB' },
     },
@@ -47,6 +49,9 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
   resources: [
     // prisma
     // UsersResource(),
+    {
+      resource: { model: getModelByName('User'), client: prisma },
+    },
     {
       resource: { model: getModelByName('User'), client: prisma },
     },

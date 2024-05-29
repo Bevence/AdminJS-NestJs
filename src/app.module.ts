@@ -1,17 +1,22 @@
 import { Module } from '@nestjs/common';
-import { AdminModule } from '@adminjs/nestjs';
 import { ConfigModule } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import path, { join } from 'path';
 
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { UsersModule } from './modules/users/users.module.js';
 import { PrismaService } from './prisma/prisma.service.js';
+import { fileURLToPath } from 'url';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
+    // ServeStaticModule.forRoot({
+    //   rootPath: join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public'),
+    // }),
     // AdminModule.createAdminAsync({
     //   useFactory: async () => {
     //     return {

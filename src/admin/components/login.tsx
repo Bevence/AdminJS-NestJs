@@ -63,31 +63,6 @@ export const Login: React.FC<LoginProps> = (props) => {
     <React.Fragment>
       <Wrapper flex variant="grey">
         <Box bg="white" height="480px" flex boxShadow="login" width={[1, 2 / 3, 'auto']}>
-          <Box
-            bg="primary100"
-            color="white"
-            p="x3"
-            width="380px"
-            flexGrow={0}
-            display={['none', 'none', 'block']}
-            position="relative"
-          >
-            <H2 fontWeight="lighter">{translateComponent('Login.welcomeHeader')}</H2>
-            <Text fontWeight="lighter" mt="default">
-              {translateComponent('Login.welcomeMessage')}
-            </Text>
-            <IllustrationsWrapper p="xxl">
-              <Box display="inline" mr="default">
-                <Illustration variant="Planet" width={82} height={91} />
-              </Box>
-              <Box display="inline">
-                <Illustration variant="Astronaut" width={82} height={91} />
-              </Box>
-              <Box display="inline" position="relative" top="-20px">
-                <Illustration variant="FlagInCog" width={82} height={91} />
-              </Box>
-            </IllustrationsWrapper>
-          </Box>
           <Box as="form" action={action} method="POST" p="x3" flexGrow={1} width={['100%', '100%', '480px']}>
             <H5 marginBottom="xxl">
               {branding.logo ? <StyledLogo src={branding.logo} alt={branding.companyName} /> : branding.companyName}
