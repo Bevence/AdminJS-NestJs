@@ -18,7 +18,7 @@ import {
 } from '@adminjs/design-system';
 import { styled } from '@adminjs/design-system/styled-components';
 import { ReduxState, useTranslation } from 'adminjs';
-import { AuthUser, AuthUsers } from '../constants/authUsers.js';
+import { AuthUser } from '../constants/authUsers.js';
 
 const Wrapper = styled(Box)<BoxProps>`
   align-items: center;
@@ -55,9 +55,7 @@ export type LoginProps = {
 export const Login: React.FC<LoginProps> = (props) => {
   const { action, errorMessage } = props;
   const { translateComponent, translateMessage } = useTranslation();
-  const [defaultUser] = AuthUsers;
   const branding = useSelector((state: ReduxState) => state.branding);
-  const message = `Email: ${defaultUser.email}\nPassword: ${defaultUser.password}`;
 
   return (
     <React.Fragment>
@@ -67,7 +65,6 @@ export const Login: React.FC<LoginProps> = (props) => {
             <H5 marginBottom="xxl">
               {branding.logo ? <StyledLogo src={branding.logo} alt={branding.companyName} /> : branding.companyName}
             </H5>
-            <MessageBox my="lg" message={message} variant="info" style={{ whiteSpace: 'pre-wrap' }} />
             {errorMessage && (
               <MessageBox
                 my="lg"
@@ -80,7 +77,6 @@ export const Login: React.FC<LoginProps> = (props) => {
               <Input
                 name="email"
                 placeholder={translateComponent('Login.properties.email')}
-                defaultValue={defaultUser.email}
               />
             </FormGroup>
             <FormGroup>
@@ -90,7 +86,6 @@ export const Login: React.FC<LoginProps> = (props) => {
                 name="password"
                 placeholder={translateComponent('Login.properties.password')}
                 autoComplete="new-password"
-                defaultValue={defaultUser.password}
               />
             </FormGroup>
             <Text mt="xl" textAlign="center">

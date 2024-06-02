@@ -6,7 +6,6 @@ import AdminJS, { AdminJSOptions, ResourceOptions } from 'adminjs';
 
 import './components.bundler.js';
 import { componentLoader } from './components.bundler.js';
-import { AuthUsers } from './constants/authUsers.js';
 import pages from './pages/index.js';
 import { customTheme } from './themes/index.js';
 import { PrismaClient } from '@prisma/client';
